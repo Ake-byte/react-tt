@@ -1,6 +1,7 @@
 import React from "react";
 import { Table } from "react-bootstrap";
 import registros from "../registros";
+import { Link } from "react-router-dom";
 
 function Registros() {
   return (
@@ -25,20 +26,19 @@ function Registros() {
               <td>{r.nombre}</td>
               <td>{r.descripcion}</td>
               <td>
-                <a href={`/registro/${r._id}`} className="btn btn-success">
+                <Link to={`/registro/${r._id}`} className="btn btn-success">
                   Ver
-                </a>
+                </Link>
               </td>
               <td>
-                <a href={`/registro/${r._id}`} className="btn btn-warning">
+                <Link to={`/registro/${r._id}`} className="btn btn-warning">
                   Editar
-                </a>
+                </Link>
               </td>
               <td>
-                {" "}
-                <a href={`/registro/${r._id}`} className="btn btn-danger">
+                <Link to={`/registro/${r._id}`} className="btn btn-danger">
                   Eliminar
-                </a>
+                </Link>
               </td>
             </tr>
           </tbody>

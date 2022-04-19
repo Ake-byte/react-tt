@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 function Header() {
   return (
@@ -8,9 +9,15 @@ function Header() {
         <Container>
           <Navbar.Brand>Herramienta Web de Selección de Productos</Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link href="/">Inicio</Nav.Link>
-            <Nav.Link href="registros">Registros</Nav.Link>
-            <Nav.Link href="login">Inicio de Sesión</Nav.Link>
+            <LinkContainer to="/">
+              <Nav.Link>Inicio</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="registros">
+              <Nav.Link>Registros</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="login">
+              <Nav.Link>Inicio de Sesión</Nav.Link>
+            </LinkContainer>
           </Nav>
         </Container>
       </Navbar>
