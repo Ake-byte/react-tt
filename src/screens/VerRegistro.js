@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Card } from "react-bootstrap";
-import registros from "../registros";
+import axios from "axios";
 
 function VerRegistro() {
   const match = useParams();
-  const registro = registros.find((r) => r._id === match.id);
+  //const registro = registros.find((r) => r._id === match.id);
+
+  const [registro, setRegistro] = useState([]);
+
+  useEffect(() => {
+    async function fetchRegistro() {
+      const { data } = await axios.get(`/api/registros/${match.id}`);
+      setRegistro(data);
+    }
+    fetchRegistro();
+  });
   return (
     <div>
       <Link to="/registros" className="btn btn-info my-3">

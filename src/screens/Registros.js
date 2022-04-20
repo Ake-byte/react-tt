@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
-import registros from "../registros";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Registros() {
+  const [registros, setRegistros] = useState([]);
+
+  useEffect(() => {
+    async function fetchRegistros() {
+      const { data } = await axios.get("/api/registros/");
+      setRegistros(data);
+    }
+    fetchRegistros();
+  }, []);
+
   return (
     <div>
       <h1>Listado de Registros</h1>
